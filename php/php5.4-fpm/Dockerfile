@@ -57,6 +57,13 @@ RUN echo "Installing PHP extensions" \
     && rm -fv /usr/local/etc/php-fpm.d/*.conf \
     && rm -rvf /usr/src/php
 
+# Set timezone
+RUN rm /etc/localtime
+RUN ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+RUN "date"
+
+COPY ./php.ini /usr/local/etc/php/php.ini
+
 WORKDIR /var/www
 
 CMD ["php-fpm"]
