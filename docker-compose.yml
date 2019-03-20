@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  apache:
+    container_name: apache
+    build: ./apache
+    ports:
+      - "8080:80"
+      - "4433:443"
+    links:
+      - php
+    volumes:
+      - ../www:/var/www
+      - ./log:/var/log
+      - ./.ssh:/root/.ssh
+  php:
+    #image: php:7-fpm
+    build: ./php/php7-fpm      
+    hostname: 'dev'    
+    container_name: php
+    volumes:
+      - ../www:/var/www      
+  php5:
+    #image: php:5.4-fpm
+    container_name: php5
+    build: ./php/php5.4-fpm      
+    hostname: 'dev5'    
+    volumes:
+      - ../www:/var/www
+  db:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user-pass'
+      MYSQL_ROOT_PASSWORD: 'root-pass'
+    ports:
+      - '3336:3306'
+    expose: 
+      - '3306'    
