@@ -1,6 +1,6 @@
 # Docker apache+php7+php5.4+mysql setup
 
-##Intro
+## Intro
 Docker setup for a Apache webserver with PHP (versions 7.1 and 5.4) and MySQL Server
 
 ## Configuration
