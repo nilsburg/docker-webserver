@@ -11,11 +11,22 @@ for(let i in data){
 	var port = vhost.port || DEFAULT_PORT;
 	var php_host = vhost.php_host || DEFAULT_PHP_HOST;
 	let outputContent = template;
+	let serverAliases = '';
 	outputContent = outputContent.replace(/{SERVER_NAME}/g, vhost.server_name)
 	outputContent = outputContent.replace(/{DOCUMENT_ROOT}/g, SERVER_ROOT+vhost.document_root)
 	outputContent = outputContent.replace(/{PORT}/g, port)
 	outputContent = outputContent.replace(/{PHP_HOST}/g, php_host);
 	outputContent = outputContent.replace(/{NAME}/g, vhost.name);
+
+	if(vhost.server_aliases){
+		serverAliases = 'ServerAlias';
+		for (let i in vhost.server_aliases){
+			serverAliases+= ' '+vhost.server_aliases[i];
+		}
+		
+
+	}
+	outputContent = outputContent.replace(/{SERVER_ALIASES}/g, serverAliases);
 	let vhostFilename = vhost.name+"-"+port+".conf";
 	console.log("Generated "+vhostFilename, vhost);
 	fs.writeFileSync(outputDir+"/"+vhostFilename, outputContent);
