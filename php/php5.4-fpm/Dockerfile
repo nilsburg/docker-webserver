@@ -1,5 +1,7 @@
 FROM php:5.4-fpm
 
+COPY ./sources.list /etc/apt/sources.list
+
 RUN apt-get update && \
     apt-get install -y \
         libfreetype6-dev \
@@ -15,6 +17,7 @@ RUN apt-get update && \
         libmemcached-dev \
         libcurl4-openssl-dev \
         libssl-dev \
+        openssh-client \
         php-pear \
         curl \
         ssmtp \

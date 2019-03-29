@@ -11,3 +11,9 @@ RUN echo $'LoadModule deflate_module /usr/local/apache2/modules/mod_deflate.so \
 	LoadModule proxy_module /usr/local/apache2/modules/mod_proxy.so \n\
 	LoadModule proxy_fcgi_module /usr/local/apache2/modules/mod_proxy_fcgi.so' \
 	  >> /usr/local/apache2/conf/httpd.conf
+
+
+RUN mkdir -p /var/log/apache2
+RUN chmod -R 777 /var/log/apache2
+
+CMD ["httpd","-D", "FOREGROUND"]

@@ -14,14 +14,12 @@ services:
       - ./log:/var/log
       - ./.ssh:/root/.ssh
   php:
-    #image: php:7-fpm
-    build: ./php/php7-fpm      
+    build: ./php/php7-fpm-alpine
     hostname: 'dev'    
-    container_name: php
+    container_name: php7
     volumes:
       - ../www:/var/www      
   php5:
-    #image: php:5.4-fpm
     container_name: php5
     build: ./php/php5.4-fpm      
     hostname: 'dev5'    
