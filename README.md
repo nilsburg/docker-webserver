@@ -20,3 +20,14 @@ The options available are:
  - __server\_aliases__: array for the server aliases
 
 Run with __node__ ```node apache/vhost-generator.js``` to generate the vhost configuration files.
+
+## Vagrant
+To run the docker containers inside a VM you use __vagrant__ to spin up a VM and run the containers:
+
+Steps: 
+
+- Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- Install [Vagrant](https://www.vagrantup.com/)
+- Run ```vagrant up```
+
+Vagrant will install docker inside the VM and run docker-compose to run the containers.
