@@ -28,6 +28,8 @@ Steps:
 
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - Install [Vagrant](https://www.vagrantup.com/)
+- Install vagrant plugin vbguest with ```vagrant plugin install vagrant-vbguest```
+- Install vagrant plugin vagrant-docker-compose with ```vagrant plugin install vagrant-docker-comppose```
 - Run ```vagrant up```
 
 Vagrant will install docker inside the VM and run docker-compose to run the containers.
