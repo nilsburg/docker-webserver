@@ -22,14 +22,14 @@ The options available are:
 Run with __node__ ```node apache/vhost-generator.js``` to generate the vhost configuration files.
 
 ## Vagrant
-To run the docker containers inside a VM you use __vagrant__ to spin up a VM and run the containers:
+To run the docker containers inside a VM you can use __vagrant__ to spin up a VM and run the containers:
 
 Steps: 
 
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - Install [Vagrant](https://www.vagrantup.com/)
-- Install vagrant plugin vbguest with ```vagrant plugin install vagrant-vbguest```
-- Install vagrant plugin vagrant-docker-compose with ```vagrant plugin install vagrant-docker-comppose```
+- Install vagrant plugin __vbguest__ with ```vagrant plugin install vagrant-vbguest```
+- Install vagrant plugin __vagrant-docker-compose__ with ```vagrant plugin install vagrant-docker-compose```
 - Run ```vagrant up```
 
 Vagrant will install docker inside the VM and run docker-compose to run the containers.
