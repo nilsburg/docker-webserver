@@ -2,3 +2,5 @@
 log/*
 apache/sites-available/*
 apache/vhosts.json
+*.crt
+*.key
