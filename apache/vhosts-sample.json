@@ -1,3 +1,4 @@
 [
-	{"name":"project_name","document_root":"/project_root", "server_name":"project_host"}	
+	{"name":"localhost","document_root":"/var/www/localhost.test/web", "server_name":"localhost.test"},
+	{"name":"localhost","document_root":"/var/www/localhost.test/web", "server_name":"localhost.test", "ssl":true, "cert_filename":"localhost.test"}
 ]

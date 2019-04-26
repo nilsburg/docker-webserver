@@ -1,4 +1,4 @@
+.vagrant
 .ssh/*
-log/*
-apache/sites-available/*
 apache/vhosts.json
+apache/ssl-config.json
