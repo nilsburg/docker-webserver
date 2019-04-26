@@ -13,13 +13,25 @@ There is a tool to generate apache virtual hosts configuration files for each en
 
 The options available are:
 
- - __name__: The name for the project. It will be prepended to the log filename and configuration filename
+ - __name__: The name for the project. It will be prepended to the log filename and configuration filename.
  - __document\_root__:  The path to the project relative to _/var/www_.
- - __server\_name__: the domain for the project
- - __php\_host__ (optional): which version of PHP to use. At the moment the only options are `php`or `php5`. Default value is `php` for PHP 7.1
- - __server\_aliases__: array for the server aliases
+ - __server\_name__: the domain for the project.
+ - __php\_host__ (optional): which version of PHP to use. At the moment the only options are `php`or `php5`. Default value is `php` for PHP 7.1.
+ - __server\_aliases__: array for the server aliases.
+ - __ssl__: true if you want to enable ssl.
+ - __cert_filename__: required if you enable ssl, the filename must match the cert file in `apache/ssl` without the extension.
 
 Run with __node__ ```node apache/vhost-generator.js``` to generate the vhost configuration files.
+
+### SSL Certificate generator
+To enable a SSL Vhost you will need to generate a certificate for it. Edit `apache/ssl-config-sample.json` adding the hosts you would like yo have SSL support and rename it to `apache/ssl-config.json`. 
+
+Then run __node__ ```node apache/cert-generator.js```.
+
+This will create the certificate files inside `apache/ssl`. You will need to install the certificate in your system.
+
+### Run and Test
+There is a sample site with the domain __localhost.test__. After you have the docker images running you can access it by entering http://localhost.test or https://localhost.test in your browser. You will see a PHPInfo page.
 
 ## Vagrant
 To run the docker containers inside a VM you can use __vagrant__ to spin up a VM and run the containers:

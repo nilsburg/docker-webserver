@@ -1,0 +1,22 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+x509_extensions = v3_req
+distinguished_name = dn
+
+[dn]
+C = {COUNTRY}
+ST = {STATE}
+L = {LOCALITY}
+O = {OCCUPATION}
+OU = {OCCUPATION_UNIT}
+emailAddress = webmaster@{DOMAIN}
+CN = {DOMAIN}
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = *.{DOMAIN}
+DNS.2 = {DOMAIN}

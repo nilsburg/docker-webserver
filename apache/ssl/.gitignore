@@ -1,0 +1,5 @@
+*.cnf
+*.key
+*.crt
+*.pem
+!localhost.test.*
